@@ -1,0 +1,41 @@
+
+type Account @entity {
+  id: ID! # account address
+  stakes: [Stake] @derivedFrom(field: "account") #virtual field
+  unstakes: [Unstake] @derivedFrom(field: "account") #virtual field
+  claims: [Claim] @derivedFrom(field: "account") #virtual field
+  addLiquidities: [AddLiquidity] @derivedFrom(field: "account") #virtual field
+  depositLPs: [DepositLP] @derivedFrom(field: "account") #virtual field
+}
+
+type Stake @entity {
+  id: ID! # Transaction hash
+  account: Account!
+  amount: BigInt
+}
+
+type Unstake @entity {
+  id: ID! # Transaction hash
+  account: Account!
+  amount: BigInt
+}
+
+type Claim @entity {
+  id: ID! # Transaction hash
+  account: Account!
+  amount: BigInt
+}
+
+
+type AddLiquidity @entity {
+  id: ID! # Transaction hash
+  account: Account!
+  adapter: String!
+}
+
+type DepositLP @entity {
+  id: ID! # Transaction hash
+  account: Account!
+  adapter: String!
+}
+
