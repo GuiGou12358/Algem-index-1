@@ -21,15 +21,14 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/FrontierEvm
-#    startBlock: 2012494
     startBlock: 1506340
     processor:
       file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
-#      options:
-#        abi: erc20
-#    assets:
-#      erc20:
-#        file: ./erc20.abi.json
+      options:
+        abi: erc20
+    assets:
+      erc20:
+        file: ./erc20.abi.json
     mapping:
       file: ./dist/index.js
       handlers:
